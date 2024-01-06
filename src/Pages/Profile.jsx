@@ -6,6 +6,7 @@ const Profile = () => {
   return (
     <>
       <div className="h-[100vh] flex flex-col">
+        <Navbar></Navbar>
 
         <div className="px-[4vw] h-full flex items-center justify-center flex-1">
           <div className="px-20 py-8 flex-1 relative bg-[#F5F2F2] p-5 rounded-xl">{/*  The big box */}

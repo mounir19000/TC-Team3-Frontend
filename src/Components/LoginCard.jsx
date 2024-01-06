@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaLock, FaUnlock } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Logincard = () => {
     const [password, setPassword] = useState("");
@@ -50,12 +51,15 @@ const Logincard = () => {
                     <p>Se rappeler de moi</p>
                 </div>
 
-                <button
-                    className="bg-[#00CED0] w-full h-12 text-white  mt-1 rounded-2xl hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-                    onClick={() => console.log("Login clicked")}
-                >
-                    Se connecter
-                </button>
+                <Link to="/Patients" className="w-full  ">
+                    <button
+                        className="bg-[#00CED0] w-full h-12 text-white  mt-1 rounded-2xl hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                        onClick={() => console.log("Login clicked")}
+                    >
+                        Se connecter
+                    </button>
+                </Link>
+                    
 
                 <div className="flex items-center mt-4">
                     <p className="mr-2">Vous n’avez pas de compte?</p>

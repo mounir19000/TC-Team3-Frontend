@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from '../Components/Navbar';
 
 const AddPatient = () => {
@@ -11,24 +11,53 @@ const AddPatient = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isChild, setIsChild] = useState(false);
 
-  const handleAddPatient = () => {
-    // Add logic here to handle adding a patient
-    console.log('Adding patient:', {
-      patientName,
-      patientAge,
-      dateOfBirth,
-      placeOfBirth,
-      profession,
-      address,
-      phoneNumber,
-      isChild,
-    });
-    // You can connect this to your backend or update state as needed
-  };
+ 
+
+
+    /* POST Request Function */
+const handleAddPatient = (event) => {
+      event.preventDefault();
+  
+      const probleme = {
+        patientName,
+        patientAge,
+        dateOfBirth,
+        placeOfBirth,
+        profession,
+        address,
+        phoneNumber,
+        isChild,
+      };
+  
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(probleme),
+      };
+  
+      console.log("Are these undefined", probleme);
+  
+      fetch("http://127.0.0.1:3004/doctors/Doctor/Patients", requestOptions)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP Error! Status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log("Response data:", data);
+          // You can add further handling here if needed
+        })
+        .catch((err) => {
+          console.error("Fetch error:", err);
+          // Handle the error and possibly provide feedback to the user
+        });
+    };
+  
 
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <div className="container mx-auto mt-8 px-[7vw]">
         <h2 className="font-bold mb-4 text-5xl">Add Patient</h2>
         <div className="grid grid-cols-2 gap-4">
