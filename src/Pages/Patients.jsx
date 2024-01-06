@@ -4,6 +4,7 @@ import AddLogo from '../assets/Add.png';
 import Patient from '../Components/Patient';
 import OptionsLogo from "../assets/options.png"
 import Navbar from "../Components/Navbar";
+import { Link } from 'react-router-dom';
 
 const Patients = () => {
   const patients = [
@@ -39,11 +40,13 @@ const Patients = () => {
             <h1 className="text-5xl font-bold my-4">Mes patients:</h1>
 
             <div className='my-6 flex gap-10  items-center space-x-40'>
-                <div className='  flex items-center justify-start'>        
-                    <div className="flex items-center px-4 py-2 rounded-2xl bg-[#00CED0]">
-                        <img className="w-6 h-6" src={AddLogo} alt="Add Logo" />
-                        <h1>Ajouter un patient</h1>
-                    </div>
+                <div className='  flex items-center justify-start'> 
+                    <Link to="/AddPatient">       
+                        <div className="flex items-center px-4 py-2 rounded-2xl bg-[#00CED0]">
+                            <img className="w-6 h-6" src={AddLogo} alt="Add Logo" />
+                            <h1>Ajouter un patient</h1>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className='flex flex-1  justify-center items-center space-x-2'>

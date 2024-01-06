@@ -9,6 +9,7 @@ import Patients from "./Pages/Patients"
 import Profile from "./Pages/Profile"
 import Notifications from "./Pages/Notifications"
 import Planning from "./Pages/Planning"
+import AddPatient from "./Pages/AddPatient"
 import Error from "./Pages/404"
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/notifications" element={ <Notifications/>}>  </Route>
             <Route path="/planning" element={ <Planning/>}>  </Route>
             <Route path="/planning" element={ <Planning/>}>  </Route>
+            <Route path="/AddPatient" element={ <AddPatient/>}>  </Route>
             <Route path="*" element={ <Error/>}>  </Route>
           </Routes>
         </Router>

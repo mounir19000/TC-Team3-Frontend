@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 
 const Patient = (props) => {
     return (
@@ -14,9 +14,11 @@ const Patient = (props) => {
             <div className="h-full">
                 <p>Date de naissance : {props.birthDate}</p>
             </div>
-            <div className="bg-[#00CED0] w-auto h-full px-4 py-2 rounded-md">
-                <p className="text-white text-center">Plus d'info</p>
-            </div>
+            <Link to="/PatientInfo">
+                <div className="bg-[#00CED0] w-auto h-full px-4 py-2 rounded-md">
+                    <p className="text-white text-center">Plus d`info</p>
+                </div>
+            </Link> 
         </div>
     );
 }
