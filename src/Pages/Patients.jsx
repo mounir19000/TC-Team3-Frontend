@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect  , useState } from 'react';
+import axios from 'axios'
 import SearchLogo from '../assets/search.svg';
 import AddLogo from '../assets/Add.png';
 import Patient from '../Components/Patient';
@@ -7,7 +9,9 @@ import Navbar from "../Components/Navbar";
 import { Link } from 'react-router-dom';
 
 const Patients = () => {
-  const patients = [
+  // These are for testing,
+  // If we run backend server we will use the fetching function with axios
+    const patients = [
     { id: 1, name: 'John Doe', birthDate: '12/30/1990', image: 'path-to-image-1.jpg' },
     { id: 2, name: 'Jane Smith', birthDate: '05/15/1985', image: 'path-to-image-2.jpg' },
     { id: 3, name: 'John Doe', birthDate: '12/30/1990', image: 'path-to-image-1.jpg' },
@@ -23,6 +27,27 @@ const Patients = () => {
     { id: 13, name: 'John Doe', birthDate: '12/30/1990', image: 'path-to-image-1.jpg' },
     { id: 14, name: 'Jane Smith', birthDate: '05/15/1985', image: 'path-to-image-2.jpg' },
 ];
+
+
+
+    const [Patients , setPatients] = useState([])
+    console.log(Patients)
+
+     /* Function to fetch all the patients with axios  */
+     useEffect(() => {
+        const apiUrl = 'http://localhost:3004/Doctors/Doctor/Patient';
+       // console.log("request") ;
+        axios.get(apiUrl)
+        
+             .then((response) => {
+             // console.log("end") ;
+
+              setPatients(response.data);
+             })
+             .catch((error) => {
+                 console.error('Error fetching data:', error);
+             });
+     }, []);
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
